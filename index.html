@@ -6,7 +6,7 @@
     <title>Konten yang Diupload</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="gbkp tugu.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
@@ -39,12 +39,11 @@
             </div>
         </div>
         <a href="#ORGANISASI">ORGANISASI</a>
+    </div>
 
-        <!-- Search bar dipindahkan ke dalam menu saat mode mobile -->
-        <div class="search-container">
-            <input type="text" placeholder="Search..." id="searchInput">
-            <button type="submit" onclick="searchFunction()">Search</button>
-        </div>
+    <div class="search-container">
+        <input type="text" placeholder="Search..." id="searchInput">
+        <button type="submit" onclick="searchFunction()">Search</button>
     </div>
 </div>
 
@@ -72,15 +71,6 @@
     function toggleMenu() {
         var navbar = document.getElementById("navbar");
         navbar.classList.toggle("responsive");
-
-        var menu = document.querySelector(".menu");
-        var searchContainer = document.querySelector(".search-container");
-
-        if (navbar.classList.contains("responsive")) {
-            menu.appendChild(searchContainer);
-        } else {
-            navbar.appendChild(searchContainer);
-        }
     }
 </script>
 
