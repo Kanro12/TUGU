@@ -226,15 +226,15 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-wrap: nowrap; /* Mencegah gambar turun ke bawah */
-        overflow-x: auto; /* Menambahkan scroll horizontal jika diperlukan */
+        flex-wrap: nowrap;
+        overflow-x: auto;
         gap: 5px;
         padding: 5px;
-        white-space: nowrap; /* Mencegah wrapping */
+        white-space: nowrap;
     }
 
     .images-frame img {
-        width: 100px; /* Menyesuaikan ukuran gambar agar tetap sejajar */
+        width: 100px;
         height: 100px;
         object-fit: cover;
     }
@@ -242,19 +242,38 @@ body {
 
 /* Responsive untuk ukuran 321px - 660px */
 @media screen and (min-width: 321px) and (max-width: 660px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .menu a {
+        flex: none;
+        white-space: nowrap;
+    }
+
     .images-frame {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-wrap: nowrap; /* Pastikan gambar tetap dalam satu baris */
-        overflow-x: auto; /* Tambahkan scroll horizontal jika gambar terlalu banyak */
+        flex-wrap: nowrap;
+        overflow-x: auto;
         gap: 10px;
         padding: 10px;
-        white-space: nowrap; /* Cegah wrapping */
+        white-space: nowrap;
     }
 
     .images-frame img {
-        width: 120px; /* Sesuaikan ukuran gambar agar tidak terlalu besar */
+        width: 120px;
         height: 120px;
         object-fit: cover;
     }
