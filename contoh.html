@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="gbkp tugu.png">
+    <title>GBKP TUGU</title>
+    <style>
+    /* General styles */
+    .navbar {
+        overflow: hidden;
+        background-color: #333;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .dropdown {
+        float: left;
+        overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+        cursor: pointer;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+
+    .navbar a:hover, .dropdown:hover .dropbtn {
+        background-color: #333;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #333;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        min-width: 160px;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .search-container {
+        float: right;
+        padding: 14px 16px;
+    }
+
+    .search-container input[type="text"] {
+        padding: 6px;
+        font-size: 16px;
+        border: none;
+        margin-top: 8px;
+        margin-right: 16px;
+    }
+
+    .search-container button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .search-container button:hover {
+        background-color: darkred;
+    }
+
+    .kategorial-menu {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 10px;
+        padding: 10px;
+        min-width: 400px;
+    }
+
+    .kategorial-menu a {
+        white-space: nowrap;
+    }
+
+    @media screen and (max-width: 600px) {
+        .navbar a, .dropdown .dropbtn {
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        .dropdown-content {
+            position: relative;
+            min-width: 200px;
+        }
+
+        .dropdown-content a {
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        .navbar {
+            display: block;
+            text-align: center;
+        }
+
+        .navbar a {
+            float: none;
+            display: block;
+        }
+
+        .dropdown {
+            float: none;
+            display: block;
+        }
+
+        .search-container {
+            float: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        .search-container input[type="text"] {
+            width: 80%;
+            margin: 8px 0;
+        }
+
+        .search-container button {
+            width: 80%;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .navbar a {
+            font-size: 12px;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 14px;
+        }
+
+    }
+
+    /* Style for images container */
+    .images-frame {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        border: 5px solid #333;
+        padding: 10px;
+        margin: 20px 0;
+        border-radius: 10px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .images-frame img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    @media screen and (max-width: 600px) {
+        .images-frame img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .images-frame {
+            justify-content: space-evenly;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .images-frame img {
+            width: 80px;
+            height: 80px;
+        }
+    }
+
+    /* New style for video container */
+    .video-container {
+        display: flex;
+        flex-direction: row;  /* Menata video secara horizontal */
+        gap: 15px;  /* Memberikan jarak antar video */
+        align-items: flex-start;  /* Menyusun video ke sebelah kiri */
+        margin: 20px;
+        justify-content: flex-start; /* Menjaga video tetap di kiri */
+    }
+
+    iframe {
+        max-width: 100%;
+        height: 315px;
+        border: none;
+        border-radius: 8px;
+    }
+
+    @media screen and (max-width: 600px) {
+        iframe {
+            height: 200px;  /* Ukuran video lebih kecil pada layar mobile */
+        }
+    }
+    </style>
+</head>
+<body>
+
+<!-- Container for images with a frame -->
+<div class="images-frame">
+    <img src="/img/icon gbkp terbaru.png" alt="GBKP Tugu">
+    <img src="/img/gbkp.jpg" alt="Icon GBKP Terbaru">
+    <img src="/img/Puji Tuhan atas terlaksananya  Peletakan Batu Pertama Pembangunan Gereja GBKP Tugu   Tuhan Yesus Memberkati.jpg" alt="Peletakan Batu Pertama">
+</div>
+
+<div class="navbar">
+    <a href="#home">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Koinonia <i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+            <a href="#">Pembinaan Warga Gereja</a>
+            <a href="#">Kategorial</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Marturia <i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+            <a href="#">Pelayanan Misi</a>
+            <a href="#">Penginjilan</a>
+            <a href="#">Doa Bersama</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Diakonia <i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+            <a href="#">Bakti Sosial</a>
+            <a href="#">Kesehatan</a>
+            <a href="#">Pemberdayaan Ekonomi</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">PJJ Sektor <i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+            <a href="#">Wilayah 1</a>
+            <a href="#">Wilayah 2</a>
+            <a href="#">Wilayah 3</a>
+        </div>
+    </div>
+    <a href="#ORGANISASI">ORGANISASI</a>
+    <div class="search-container">
+        <input type="text" placeholder="Search..." id="searchInput">
+        <button type="submit" onclick="searchFunction()">Search</button>
+    </div>
+</div>
+
+<!-- Video container -->
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/S8a-u3GgRH4?si=ndfMw3K_HKJYgHMM" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/NoOJbl2eusk?si=2Gi145SoEfa0qBus" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/JTsf4j81IJ4?si=_dOXgpV7aNuJmhy_" allowfullscreen></iframe>
+</div>
+
+<script>
+    function searchFunction() {
+        var input = document.getElementById('searchInput').value;
+        alert("You searched for: " + input);
+    }
+</script>
+
+</body>
+</html>

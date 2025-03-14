@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Edit dan Upload</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit dan Upload File</h2>
+        <form id="editUploadForm" action="#" method="post" enctype="multipart/form-data">
+            <label for="fileInput">Pilih File untuk Diupload:</label>
+            <input type="file" id="fileInput" name="file">
+            <br><br>
+
+            <label for="urlInput">Atau masukkan URL File:</label>
+            <input type="url" id="urlInput" name="url" placeholder="Masukkan URL file">
+            <br><br>
+
+            <label for="textInput">Masukkan Keterangan:</label>
+            <textarea id="textInput" name="keterangan" rows="4" cols="50" required></textarea>
+            <br><br>
+
+            <button type="submit">Upload</button>
+        </form>
+
+        <div id="feedback"></div>
+
+        <!-- Tempat untuk menampilkan file atau URL yang diupload -->
+        <div id="uploadedContent"></div>
+    </div>
+
+    <!-- Menggunakan type="module" untuk mendukung import/export -->
+    <script type="module" src="js/server.js"></script>
+</body>
+</html>
