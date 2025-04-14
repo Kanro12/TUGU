@@ -519,3 +519,42 @@ body, html {
         display: block;
     }
 }
+/* Scroll pada menu untuk versi mobile */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        max-height: 400px; /* Atur ketinggian maksimal menu */
+        overflow-y: auto;  /* Menambahkan scroll vertikal */
+        padding-right: 10px; /* Memberikan sedikit ruang untuk scroll */
+    }
+
+    .navbar a,
+    .dropdown {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 14px 16px;
+    }
+
+    .dropdown-content {
+        position: static;
+        min-width: 100%;
+    }
+
+    .dropdown .dropbtn {
+        width: 100%;
+        text-align: left;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
