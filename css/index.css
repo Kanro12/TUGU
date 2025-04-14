@@ -556,5 +556,131 @@ body, html {
 
     .hamburger {
         display: block;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        transition: transform 0.3s;
+        margin-left: 0; /* Hapus jarak kiri hamburger */
+        margin-top: 10px; /* Memberikan sedikit jarak atas */
+    }
+
+    /* Menyesuaikan posisi dan jarak search dan hamburger */
+    .search-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px; /* Menambahkan jarak sedikit agar tidak terlalu dekat dengan navbar */
+    }
+
+    .search-container input[type="text"] {
+        width: 80%;
+    }
+
+    .search-container button {
+        width: 15%;
     }
 }
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.5s, opacity 0.5s;
+    }
+
+    .navbar.responsive .menu {
+        max-height: 500px;
+        opacity: 1;
+    }
+
+    .navbar a,
+    .dropdown {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 14px 16px;
+    }
+
+    .dropdown-content {
+        position: static;
+        min-width: 100%;
+    }
+
+    .dropdown .dropbtn {
+        width: 100%;
+        text-align: left;
+    }
+
+    /* Search Container */
+    .search-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 8px;
+        margin-top: 10px; /* Menambahkan jarak ke bawah agar tidak terlalu rapat */
+        justify-content: space-between;
+    }
+
+    .search-container input[type="text"] {
+        width: 80%; /* Memperlebar input agar menyesuaikan */
+    }
+
+    .search-container button {
+        width: 15%; /* Ukuran tombol pencarian */
+    }
+
+    /* Hamburger */
+    .hamburger {
+        display: block;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        transition: transform 0.3s;
+        margin-left: 0; /* Hapus jarak kiri hamburger */
+        margin-top: 10px; /* Memberikan sedikit jarak atas */
+    }
+
+    /* Menyesuaikan posisi dan jarak search dan hamburger */
+    .search-container input[type="text"] {
+        width: 70%;
+    }
+
+    .search-container button {
+        width: 25%;
+    }
+}
+
+/* Tombol pencarian merah */
+.search-container button {
+    width: 25%;
+    padding: 8px;
+    background-color: #e74c3c; /* Warna merah */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Animasi transisi */
+}
+
+.search-container button:hover {
+    background-color: #c0392b; /* Warna merah gelap saat hover */
+    transform: scale(1.1); /* Efek zoom saat hover */
+}
+
+.search-container button:focus {
+    outline: none; /* Menghilangkan outline saat tombol dipilih */
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.6); /* Efek glow pada tombol */
+}
+

@@ -28,6 +28,45 @@
         .dropdown-content::-webkit-scrollbar-thumb:hover {
             background-color: #555;
         }
+
+        /* Menambahkan gaya untuk kolom pencarian di dalam navbar */
+        .search-container {
+            margin-left: auto;
+            margin-right: 20px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 6px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-container button {
+            padding: 6px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        /* Gaya responsif untuk navbar */
+        .navbar.responsive .search-container {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .navbar.responsive .menu a,
+        .navbar.responsive .dropdown {
+            display: block;
+            text-align: left;
+            margin: 5px 0;
+        }
+
+        .navbar.responsive .search-container {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -87,6 +126,7 @@
         <a href="#ORGANISASI">ORGANISASI</a>
     </div>
 
+    <!-- Pindahkan search-container ke dalam menu -->
     <div class="search-container">
         <input type="text" placeholder="Search..." id="searchInput">
         <button type="submit" onclick="searchFunction()">Search</button>
