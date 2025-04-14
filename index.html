@@ -7,6 +7,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="gbkp tugu.png">
     <link rel="stylesheet" href="css/index.css">
+
+    <style>
+        /* Tambahan CSS untuk scroll di dropdown */
+        .dropdown-content {
+            max-height: 250px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .dropdown-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .dropdown-content::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 3px;
+        }
+
+        .dropdown-content::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,29 +37,53 @@
     <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
     <div class="menu">
         <a href="#home">Home</a>
+
+        <!-- Dropdown lainnya -->
         <div class="dropdown">
             <button class="dropbtn">Koinonia <i class="fa fa-caret-down"></i></button>
             <div class="dropdown-content">
-                <a href="#">Pembinaan Warga Gereja</a>
-                <a href="#">Kategorial</a>
+                <a href="#">Paduan Suara</a>
+                <a href="#">Saitun</a>
+                <a href="#">Mamre</a>
+                <a href="#">Moria</a>
+                <a href="#">Permata</a>
+                <a href="#">KAKR</a>
             </div>
         </div>
+
         <div class="dropdown">
             <button class="dropbtn">Marturia <i class="fa fa-caret-down"></i></button>
             <div class="dropdown-content">
-                <a href="#">Pelayanan Misi</a>
-                <a href="#">Penginjilan</a>
-                <a href="#">Doa Bersama</a>
+                <a href="#">Perkabaran Injil, Wisata Rohani dan Kebaktian Padang</a>
+                <a href="#">Multimedia dan Informasi Teknologi</a>
+                <a href="#">Dialog Antar Iman dan Budaya</a>
+                <a href="#">Sermon</a>
+                <a href="#">Pendidikan Agama Kristen dan Katekhisasi</a>
             </div>
-        </div>
+        </div>        
+
         <div class="dropdown">
             <button class="dropbtn">Diakonia <i class="fa fa-caret-down"></i></button>
             <div class="dropdown-content">
-                <a href="#">Bakti Sosial</a>
-                <a href="#">Kesehatan</a>
-                <a href="#">Pemberdayaan Ekonomi</a>
+                <a href="#">Karitatif</a>
+                <a href="#">Transformatif</a>
+                <a href="#">Pendidikan dan Kesehatan</a>
+                <a href="#">Tim Doa</a>
+                <a href="#">Koperasi dan Bidang Usaha</a>
             </div>
         </div>
+
+        <!-- Menambahkan dropdown untuk Sekretariat dan Bidang Penunjang -->
+        <div class="dropdown">
+            <button class="dropbtn">Sekretariat dan Bidang Penunjang <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <a href="#">Inventaris</a>
+                <a href="#">Litbang dan Evaluasi</a>
+                <a href="#">Kesekretariatan</a>
+                <a href="#">Keuangan</a>
+            </div>
+        </div>
+
         <a href="#ORGANISASI">ORGANISASI</a>
     </div>
 
@@ -52,6 +98,15 @@
     <img src="img/gambar-terbaru.jpg" alt="GBKP Tugu">
     <img src="img/gbkp.jpg" alt="Icon GBKP Terbaru">
     <img src="img/peletakan-batu.jpg" alt="Peletakan Batu Pertama">
+</div>
+
+<!-- Gambar yang dapat diklik -->
+<img src="img/struktukr.jpg" alt="Struktur" class="gambar" onclick="showModal(this)">
+
+<!-- Modal untuk menampilkan gambar besar -->
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="imgModal">
 </div>
 
 <!-- Container for uploaded content -->
@@ -72,6 +127,20 @@
         var navbar = document.getElementById("navbar");
         navbar.classList.toggle("responsive");
     }
+
+    // Fungsi untuk menampilkan modal
+  function showModal(image) {
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("imgModal");
+    modal.style.display = "block";
+    modalImg.src = image.src;  // Mengatur sumber gambar modal dengan gambar yang diklik
+  }
+
+  // Fungsi untuk menutup modal
+  function closeModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+  }
 </script>
 
 </body>

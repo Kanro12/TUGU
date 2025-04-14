@@ -24,24 +24,22 @@ const uploadedContent = document.getElementById("uploadedContent");
 function displayContent(data) {
     const contentItem = document.createElement("div");
     contentItem.classList.add("content-item");
+
+    // Saat diklik, menuju halaman detail
     contentItem.addEventListener("click", () => {
-        window.location.href = `detail.html?url=${encodeURIComponent(data.url)}&desc=${encodeURIComponent(data.keterangan)}`;
+        window.location.href = `detail.html?url=${encodeURIComponent(data.url)}&desc=${encodeURIComponent(data.keterangan)}&judul=${encodeURIComponent(data.judul || '')}`;
     });
 
-    if (data.type === "file") {
-        if (isImage(data.url)) {
-            const img = document.createElement("img");
-            img.src = data.url;
-            contentItem.appendChild(img);
-        } else if (isVideo(data.url)) {
-            const video = document.createElement("video");
-            video.src = data.url;
-            video.controls = true;
-            contentItem.appendChild(video);
-        } else {
-            contentItem.innerHTML += `<p>File "${data.fileName}" berhasil diupload, tetapi bukan gambar atau video.</p>`;
-        }
-    } else if (data.type === "url") {
+    // ➕ Tambahkan Judul di atas konten
+    if (data.judul) {
+        const titleElement = document.createElement("div");
+        titleElement.classList.add("upload-title");
+        titleElement.textContent = data.judul;
+        contentItem.appendChild(titleElement);
+    }
+
+    // Tampilkan konten (gambar/video/link/YouTube)
+    if (data.type === "file" || data.type === "url") {
         if (isImage(data.url)) {
             const img = document.createElement("img");
             img.src = data.url;
@@ -63,16 +61,15 @@ function displayContent(data) {
             link.target = "_blank";
             link.textContent = `Klik untuk mengunjungi: ${data.url}`;
             contentItem.appendChild(link);
+        } else {
+            contentItem.innerHTML += `<p>URL "${data.url}" tidak dikenali sebagai gambar/video/link.</p>`;
         }
     }
 
-    // Menampilkan deskripsi
-    const description = document.createElement("p");
-    description.textContent = `Deskripsi: ${data.keterangan}`;
-    contentItem.appendChild(description);
-
     uploadedContent.appendChild(contentItem);
 }
+
+
 
 // Fungsi untuk memeriksa apakah URL adalah gambar
 function isImage(url) {

@@ -91,3 +91,81 @@ function extractYouTubeId(url) {
     const match = url.match(regExp);
     return match ? match[1] : null;
 }
+document.getElementById("uploadForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const judulInput = document.getElementById("judulInput");
+    const urlInput = document.getElementById("urlInput");
+    const textInput = document.getElementById("textInput");
+    const feedback = document.getElementById("feedback");
+    const uploadedContent = document.getElementById("uploadedContent");
+
+    uploadedContent.innerHTML = '';
+
+    if (urlInput.value.trim() === "" || judulInput.value.trim() === "") {
+        feedback.textContent = "Judul dan URL harus diisi!";
+        feedback.style.color = "red";
+        return;
+    }
+
+    const url = urlInput.value;
+    const judul = judulInput.value;
+    const keterangan = textInput.value;
+
+    feedback.textContent = `Data berhasil diproses.`;
+    feedback.style.color = "green";
+
+    const contentItem = document.createElement("div");
+    contentItem.classList.add("content-item", "file-link");
+
+    // Tampilkan judul
+    const titleElement = document.createElement("div");
+    titleElement.classList.add("upload-title");
+    titleElement.textContent = judul;
+    contentItem.appendChild(titleElement);
+
+    // Tampilkan konten berdasarkan jenis file
+    if (url.match(/\.(jpeg|jpg|gif|png)$/)) {
+        const img = document.createElement("img");
+        img.src = url;
+        contentItem.appendChild(img);
+    } else if (url.match(/\.(mp4|webm|ogg)$/)) {
+        const video = document.createElement("video");
+        video.src = url;
+        video.controls = true;
+        contentItem.appendChild(video);
+    } else if (url.includes("youtu.be") || url.includes("youtube.com")) {
+        const videoId = extractYouTubeId(url);
+        if (videoId) {
+            const iframe = document.createElement("iframe");
+            iframe.src = `https://www.youtube.com/embed/${videoId}`;
+            iframe.frameBorder = "0";
+            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+            iframe.allowFullscreen = true;
+            contentItem.appendChild(iframe);
+        } else {
+            feedback.textContent = "URL YouTube tidak valid.";
+            feedback.style.color = "red";
+            return;
+        }
+    } else {
+        contentItem.innerHTML += `<p>URL "${url}" berhasil diproses tetapi bukan gambar atau video.</p>`;
+    }
+
+    // Tambahkan keterangan
+    const description = document.createElement("p");
+    description.classList.add("description");
+    description.textContent = `Deskripsi: ${keterangan}`;
+    contentItem.appendChild(description);
+
+    uploadedContent.appendChild(contentItem);
+
+    // Simpan ke Firebase
+    const newUploadRef = ref(database, 'uploads/' + Date.now());
+    set(newUploadRef, {
+        type: "url",
+        url: url,
+        judul: judul,
+        keterangan: keterangan
+    });
+});

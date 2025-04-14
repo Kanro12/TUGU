@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Upload URL</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
     <div class="container">
+        <h2>Form Upload URL</h2>
+
         <form id="uploadForm" action="#" method="post">
+            <!-- Input Judul -->
+            <label for="judulInput">Masukkan Judul:</label>
+            <input type="text" id="judulInput" name="judul" placeholder="Masukkan judul konten" required>
+
             <label for="urlInput">Masukkan URL File:</label>
             <input type="url" id="urlInput" name="url" placeholder="Masukkan URL file" required>
-            <br><br>
 
             <label for="textInput">Masukkan Keterangan:</label>
             <textarea id="textInput" name="keterangan" rows="4" cols="50" required></textarea>
-            <br><br>
 
             <button type="submit">Upload</button>
         </form>
 
         <div id="feedback"></div>
-
-        <!-- Tempat untuk menampilkan URL yang diupload -->
         <div id="uploadedContent"></div>
     </div>
 
-    <!-- Memanggil JavaScript -->
     <script type="module" src="js/upload.js"></script>
 </body>
 </html>
